@@ -58,7 +58,7 @@ Implementeer de methode zoektermenToHtml om de zoektermen bovenaan te laten zien
 
 Test deze code door in de init – functie deze functie aan te roepen als op de knop Zoekterm toevoegen geklikt wordt
 
-![oef1_7.png](/docs/oef1_7.png)
+![oef1_7.PNG](/docs/oef1_7.PNG)
  
 Implementeer de methode getZoektermenFromStorage om de zoektermen op te vragen uit de storage.
 
