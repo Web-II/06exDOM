@@ -4,47 +4,74 @@ De werking van de webpagina is als volgt
 - Je geeft een zoekterm in in het tekstvak met id zoekterm. Je klikt op de knop Zoekterm toevoegen => 
   - De zoekterm wordt toegevoegd aan het lijstje bovenaan indien deze nog niet bestaat.
   - Alle vacatures waarvan de titel één of meerdere van de zoektermen bevat, worden getoond. Het zoeken is niet hoofdletter gevoelig
-- Als bij een zoekterm op   geklikt wordt, verdwijnt de zoekterm uit het lijstje bovenaan en wordt de lijst van vacatures bijgewerkt.
+- Als bij een zoekterm op X geklikt wordt, verdwijnt de zoekterm uit het lijstje bovenaan en wordt de lijst van vacatures bijgewerkt.
 - Als de pagina geladen wordt, moeten de laatst gekozen zoektermen onmiddellijk verschijnen en de overeenkomstige vacatures worden onmiddellijk getoond.
+ 
+ ![oef1.png](/docs/oef1.png)
  
 Deel 1
 Voorzie een klasse Vacature. Elke vacature heeft id, titel, functieomschrijving, profiel, bedrijf en plaats.
+
 Voorzie getters en setters
+
 Voorzie een functie bevatZoekterm(zoektermen). Deze functie heeft retourneert true als de titel van de vacature één of meerdere van de zoektermen (dit is een array) bevat. Dit mag niet hoofdlettergevoelig zijn.
+
 Test de code door in de init – functie de testcode voor Deel 1 uit commentaar te zetten. Zet de testcode vervolgens weer in commentaar.
+
+![oef1_2.png](/docs/oef1_2.png)
  
 Deel 2
 Zet de bestaande code voor VacatureRepository uit commentaar.
 Implementeer de methode voegVacatureToe om één vacature toe te voegen aan de array van vacatures. Maak gebruik van de meegegeven parameters.
+
 Test de code door in de init – functie de testcode voor Deel 2 uit commentaar te zetten. De 4 vacatures moeten uitgeschreven worden. De undefined is afkomstig van de filter – functie die momenteel nog niets retourneert.
- 
+
+![oef1_3.png](/docs/oef1_3.png)
+
 Implementeer de methode filter die de vacatures retourneert die voldoen aan één of meerdere van de meegegeven zoektermen.
+
 Controleer of de testcode de gewenste resultaten geeft. Zet de testcode voor Deel 2 vervolgens weer in commentaar.
- 
+
+![oef1_4.png](/docs/oef1_4.png)
+
 Deel 3
 Zet de bestaande code voor VdabComponent uit commentaar.
+
 Zet de bestaande testcode voor Deel 3 uit commentaar.
+
 Voeg code toe aan de init – functie zodat het volgende gebeurt als op de knop Zoekterm toevoegen geklikt wordt
 - Er wordt gecontroleerd of deze zoekterm nog niet voorkomt. Er wordt daarbij geen onderscheid gemaakt tussen hoofdletters en kleine letters.
 - Als de zoekterm al voorkomt => Er verschijnt een alert met “Deze zoekterm bestaat al”
 - Anders wordt de zoekterm in kleine letters toegevoegd aan de array zoektermen
 - Het tekstvak wordt leeg gemaakt
 - Alle zoektermen worden getoond in de console
+
 Test deze code!
- 
+
+![oef1_5.png](/docs/oef1_5.png)
+
 Implementeer de methode zoektermenToHtml om de zoektermen bovenaan te laten zien.
 - De onderstaande html code wordt dynamisch gegenereerd. Wat in een kadertje staat, verschilt per zoekterm
-- Als op   wordt geklikt, wordt de zoekterm verwijderd en wordt het resultaat aangepast 
+![oef1_6.png](/docs/oef1_6.png)
+- Als op X wordt geklikt, wordt de zoekterm verwijderd en wordt het resultaat aangepast 
 - Op het einde van de methode wordt de functie vacaturesToHtml opgeroepen
+
 Test deze code door in de init – functie deze functie aan te roepen als op de knop Zoekterm toevoegen geklikt wordt
- 
+
+![oef1_7.png](/docs/oef1_7.png)
  
 Implementeer de methode getZoektermenFromStorage om de zoektermen op te vragen uit de storage.
+
 Als de storage een sleutel VDABZoektermen bevat, moet de array zoektermen opgevuld worden met de overeenkomstige waarden uit de storage 
- 
+
+![oef1_8.png](/docs/oef1_8.png)
+
 Implementeer de methode setZoektermenInStorage om de zoektermen op te vragen uit de storage.
+
 Deze functie wordt gebruikt om de array zoektermen weg te schrijven naar de storage. De gebruikte sleutel is VDABZoektermen.
+
 Denk goed na waar je de methode setZoektermenInStorage moet oproepen (2 plaatsen). Je moet er altijd voor zorgen dat telkens wanneer de array zoektermen gewijzigd wordt, de storage gesynchroniseerd wordt: Dus zowel wanneer er een zoekterm toegevoegd wordt, als wanneer er één verwijderd wordt
+
 Roep de methode getZoektermenFromStorage op in de init – functie, gevolgd door een oproep van de functie zoektermenToHtml zodat wanneer de pagina geladen wordt, de zoektermen geladen en weergegeven worden.
 
 ## Oefening 2 Bank [Examen Voorjaar 2016]
