@@ -75,44 +75,74 @@ Denk goed na waar je de methode setZoektermenInStorage moet oproepen (2 plaatsen
 Roep de methode getZoektermenFromStorage op in de init – functie, gevolgd door een oproep van de functie zoektermenToHtml zodat wanneer de pagina geladen wordt, de zoektermen geladen en weergegeven worden.
 
 ## Oefening 2 Bank [Examen Voorjaar 2016]
+
 Op de officiële KBC website kan je een overzicht krijgen van je uitgaven verdeeld over verschillende categorieën. De bedoeling van deze oefening is dat we een sterk vereenvoudigde versie hiervan maken.
+
 Aan de linkerkant verschijnt een overzicht van alle uitgaven. Aan de rechterkant maken we gebruik van een canvas om een kolomgrafiek te laten zien. Hierop wordt de procentuele verdeling van de uitgaven uitgezet. In dit voorbeeld zijn er 4 categorieën: andere, vervoer, voeding en woning
-  totaal bedrag van de uitgaven = 800 EUR
+-  totaal bedrag van de uitgaven = 800 EUR
 -  categorie: andere = 40 EUR => 5% van het totaal bedrag
 -  categorie: vervoer = 80 EUR => 10% van het totaal bedrag
 -  categorie: voeding = 120 EUR => 15% van het totaal bedrag
 -  categorie: woning = 560 EUR => 70% van het totaal bedrag
 
+![oef2_1.PNG](/docs/oef2_1.PNG)
+
 Deel 1
 Voorzie een klasse Uitgave. Elke uitgave bestaat uit een id, datum, bedrag, omschrijving en een categorie. Voorzie getters en setters
+
 Test de code door in de init – functie de testcode voor Deel 1 uit commentaar te zetten. Zet de testcode vervolgens weer in commentaar.
- 
+
+![oef2_2.PNG](/docs/oef2_2.PNG)
+
 Deel 2
 Zet de bestaande code voor UitgavenRepository uit commentaar.
+
 Implementeer de methode voegUitgaveToe om één uitgave toe te voegen aan de array van uitgaven. Maak gebruik van de meegegeven parameters.
+
 Test de code door in de init – functie de testcode voor Deel 2 uit commentaar te zetten. De 7 uitgaven moeten uitgeschreven worden. De undefined zijn afkomstig van de functies die momenteel nog niets retourneren.
- 
+
+![oef2_3.PNG](/docs/oef2_3.PNG)
+
 Implementeer de methode geefCategorieen die een alfabetisch gesorteerde array van de unieke categorieën retourneert.
+
 Controleer of de testcode het gewenste resultaat geeft.
- 
+
+![oef2_4.PNG](/docs/oef2_4.PNG)
+
 Implementeer de methode totaalBedragUitgaven die het totale bedrag van de uitgaven retourneert.
+
 Controleer of de testcode het gewenste resultaat geeft.
- 
+
+![oef2_5.PNG](/docs/oef2_5.PNG)
+
 Implementeer de methode uitgavenPerCategorie die het totale bedrag van de uitgaven voor de opgegeven categorie retourneert.
+
 Controleer of de testcode de gewenste resultaten geeft. Zet de testcode voor Deel 2 vervolgens weer in commentaar.
- 
+
+![oef2_6.PNG](/docs/oef2_6.PNG)
+
 Deel 3
 Zet de bestaande code voor BankComponent uit commentaar.
+
 Zet de bestaande testcode voor Deel 3 uit commentaar.
+
 Bekijk de implementatie van de functie datumNotatie. Deze functie zorgt ervoor dat een datum wordt uitgeschreven zoals in het bovenstaande voorbeeld, bijvoorbeeld: Maandag 8/3/2018
+
 Implementer de functie getAantalBezoekenFromStorage die wordt gebruikt om het aantal keer dat de website werd bezocht op te halen uit te storage. Maak gebruik van de property aantalBezoeken . Roep deze functie op in de init – functie op de juiste plaats.
+
 Implementer de functie setAantalBezoekenInStorage die wordt gebruikt om het aantal keer dat de website werd bezocht weg te schrijven naar de storage. Maak gebruik van de property aantalBezoeken Roep deze functie op in de init – functie op de juiste plaats.
+
 Implementeer de functie tekst waarin de onderstaande html code dynamisch wordt gegenereerd. Per categorie komt er een andere afbeelding: andere.png / vervoer.png / voeding.png / woning.png. De omschrijving staat altijd in hoofdletters. 
-  
+
+![oef2_7.PNG](/docs/oef2_7.PNG)
+
 ## Oefening 3 Boeken [Examen 2de zit 2017]
 De webpagina bevat een overzicht van je boeken. Sommige boeken heb je reeds gelezen en worden getoond in een roze kader. De boeken die je nog niet las staan in een zwart kader. Wanneer je op een boek klikt dat je nog niet las verandert de kleur. Wanneer je klikt op een reeds gelezen boek verandert er niets. De boeken die je reeds las, worden bijgehouden in de storage. Zo krijg je telkens het correcte overzicht wanneer je de webpagina opent.
+
 Op je boekenplank zie je telkens maar 6 van je boeken. Onder de boeken bevindt zich een balk voor de navigatie. Door te klikken op een pagina krijg je de gepaste boeken te zien. 
- 
+
+![oef3_1.PNG](/docs/oef3_1.PNG)
+
 De derde pagina van de boekenplank, bevat boeken 13 tem 18 van alle boeken. 
 De gelezen boeken staan in een roze kader.
 Deel 1 – De class Boek
@@ -188,5 +218,5 @@ Deel 4 – toHTML
 Implementeer nu de functie boekenToHtml verder. Deze functie genereert de boekenplank. Deze bevat 6 boeken voor de actievePagina (enkel op de laatste pagina kunnen er eventueel minder dan 6 boeken staan). Zorg dat wanneer er geklikt wordt op een nog niet gelezen boek de functie voegGelezenBoekToe wordt aangeroepen met de juiste parameter. Gelezen boeken reageren niet op een klik.
 Hieronder zie je de HTML die je moet genereren binnen de div met id “boeken”
  
-
+![oef3_2.PNG](/docs/oef3_2.PNG)
 
