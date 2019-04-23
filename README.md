@@ -92,7 +92,7 @@ Voorzie een klasse Uitgave. Elke uitgave bestaat uit een id, datum, bedrag, omsc
 
 Test de code door in de init – functie de testcode voor Deel 1 uit commentaar te zetten. Zet de testcode vervolgens weer in commentaar.
 
-![oef2_2.PNG](/docs/oef2_2.PNG)
+![oef2_8.PNG](/docs/oef2_8.PNG)
 
 Deel 2
 Zet de bestaande code voor UitgavenRepository uit commentaar.
@@ -101,25 +101,25 @@ Implementeer de methode voegUitgaveToe om één uitgave toe te voegen aan de arr
 
 Test de code door in de init – functie de testcode voor Deel 2 uit commentaar te zetten. De 7 uitgaven moeten uitgeschreven worden. De undefined zijn afkomstig van de functies die momenteel nog niets retourneren.
 
-![oef2_3.PNG](/docs/oef2_3.PNG)
+![oef2_2.PNG](/docs/oef2_2.PNG)
 
 Implementeer de methode geefCategorieen die een alfabetisch gesorteerde array van de unieke categorieën retourneert.
 
 Controleer of de testcode het gewenste resultaat geeft.
 
-![oef2_4.PNG](/docs/oef2_4.PNG)
+![oef2_3.PNG](/docs/oef2_3.PNG)
 
 Implementeer de methode totaalBedragUitgaven die het totale bedrag van de uitgaven retourneert.
 
 Controleer of de testcode het gewenste resultaat geeft.
 
-![oef2_5.PNG](/docs/oef2_5.PNG)
+![oef2_4.PNG](/docs/oef2_4.PNG)
 
 Implementeer de methode uitgavenPerCategorie die het totale bedrag van de uitgaven voor de opgegeven categorie retourneert.
 
 Controleer of de testcode de gewenste resultaten geeft. Zet de testcode voor Deel 2 vervolgens weer in commentaar.
 
-![oef2_6.PNG](/docs/oef2_6.PNG)
+![oef2_5.PNG](/docs/oef2_5.PNG)
 
 Deel 3
 Zet de bestaande code voor BankComponent uit commentaar.
@@ -134,7 +134,7 @@ Implementer de functie setAantalBezoekenInStorage die wordt gebruikt om het aant
 
 Implementeer de functie tekst waarin de onderstaande html code dynamisch wordt gegenereerd. Per categorie komt er een andere afbeelding: andere.png / vervoer.png / voeding.png / woning.png. De omschrijving staat altijd in hoofdletters. 
 
-![oef2_7.PNG](/docs/oef2_7.PNG)
+![oef2_6.PNG](/docs/oef2_6.PNG)
 
 ## Oefening 3 Boeken [Examen 2de zit 2017]
 De webpagina bevat een overzicht van je boeken. Sommige boeken heb je reeds gelezen en worden getoond in een roze kader. De boeken die je nog niet las staan in een zwart kader. Wanneer je op een boek klikt dat je nog niet las verandert de kleur. Wanneer je klikt op een reeds gelezen boek verandert er niets. De boeken die je reeds las, worden bijgehouden in de storage. Zo krijg je telkens het correcte overzicht wanneer je de webpagina opent.
