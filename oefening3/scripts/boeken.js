@@ -46,7 +46,9 @@ class BoekenRepository {
   // geefBoeken retourneert een deel van de boeken in een array
   // parameter 'vanafBoek' is een nummer en geeft aan vanaf het hoeveelste boek we een deel nemen (eerste boek is nummer 1)
   // parameter 'aantalBoeken' is een nummer en geeft aan hoeveel opeenvolgende boeken we in het deel stoppen
-  geefBoeken(vanafBoek, aantalBoeken) {}
+  geefBoeken(vanafBoek, aantalBoeken) {
+    
+  }
 
   boekenVullen() {
     this.voegBoekToe(1, 'Wuthering Heights', 'WutheringHeights.jpg');
@@ -117,11 +119,11 @@ class BoekenRepository {
 }
 
 class BoekenComponent {
-  constructor(window) {
+  constructor(storage) {
     this.boekenRepository = new BoekenRepository();
-    this.gelezenBoeken = []; // bevat de id's van gelezen boeken
+    this.gelezenBoeken = new Set(); 
     this.actievePagina = 1; // bevat het nummer van de pagina die momenteel getoond wordt
-    this.storage = window.localStorage;
+    this.storage = storage;
     this.aantalBoekenPerPagina = 6;
   }
   get boekenRepository() {
@@ -158,37 +160,29 @@ class BoekenComponent {
 
   // navigatieToHtml genereert de twee knoppen die in de div met id navigatie moeten komen
   navigatieToHtml() {
-    const aantalPaginas =
-      this._boekenRepository.boeken.length / this._aantalBoekenPerPagina;
-    const divElement = document.getElementById('navigatie');
-    let tekst, actie;
-    for (let i = 0; i < 2; i++) {
-      let btn = document.createElement('button');
-      if (i === 0) {
-        tekst = '<';
-        actie = () => {
-          this._actievePagina = Math.max(1, this._actievePagina - 1);
-          this.boekenToHtml();
-        };
-      } else {
-        tekst = '>';
-        actie = () => {
-          this._actievePagina = Math.min(
-            aantalPaginas,
-            this._actievePagina + 1
-          );
-          this.boekenToHtml();
-        };
-      }
-      btn.appendChild(document.createTextNode(tekst));
-      btn.onclick = actie;
-      btn.type = 'button';
-      divElement.appendChild(btn);
+    const aantalPaginas = this._boekenRepository.boeken.length / this._aantalBoekenPerPagina;
+        
+    const btn1 = document.createElement('button');
+    btn1.appendChild(document.createTextNode('<'));
+    btn1.onclick = ()=>{
+      this._actievePagina = Math.max(1, this._actievePagina - 1);
+      this.boekenToHtml();
     }
+    
+    const btn2 = document.createElement('button');
+    btn2.appendChild(document.createTextNode('>'));
+    btn2.onclick = ()=>{
+      this._actievePagina = Math.min(aantalPaginas,this._actievePagina + 1);
+      this.boekenToHtml();
+    }
+    document.getElementById('navigatie').appendChild(btn1);
+    document.getElementById('navigatie').appendChild(btn2);
+
   }
 
   // boekenToHtml genereert dynamsich de boekenplank die in de div met id boeken moet komen
   boekenToHtml() {
+    console.log(this.actievePagina);
     const boeken = this._boekenRepository.geefBoeken(
       (this._actievePagina - 1) * this._aantalBoekenPerPagina,
       this._aantalBoekenPerPagina
@@ -200,28 +194,31 @@ class BoekenComponent {
 
     // voor elk boek:
 
+    
     boekenDiv.appendChild(row);
   }
 
   voegGelezenBoekToe(id) {
-    this._gelezenBoeken.push(id);
+    this.gelezenBoeken.add(id);
     this.setGelezenBoekenInStorage();
   }
 
   // getGelezenBoekenFromStorage haaltde lijst met id's van gelezen boeken op uit de storage
-  getGelezenBoekenFromStorage() {}
+  getGelezenBoekenFromStorage() { 
+    
+  }
 
   // setGelezenBoekenInStorage plaatst de lijst van id's van gelezen boeken in de storage
-  setGelezenBoekenInStorage() {}
+  setGelezenBoekenInStorage() {
+
+  }
 }
 
 function init() {
-  const boekenComponent = new BoekenComponent(this);
+  const boekenComponent = new BoekenComponent(window.localStorage);
   boekenComponent.getGelezenBoekenFromStorage();
   boekenComponent.navigatieToHtml();
   boekenComponent.boekenToHtml();
 }
 
-window.onload = () => {
-  init();
-};
+window.onload = init;
