@@ -1,15 +1,13 @@
-/*
+
+
 class VacaturesRepository {
   constructor() {
-    this.vacatures = [];
+    this._vacatures = [];
     this.vacaturesVullen();
   }
 
   get vacatures() {
     return this._vacatures;
-  }
-  set vacatures(value) {
-    this._vacatures = value;
   }
 
   voegVacatureToe(id, titel, functieomschrijving, profiel, bedrijf, plaats) {
@@ -81,17 +79,16 @@ class VacaturesRepository {
     );
   }
 
-  filter(zoektermen) {
-
+  filterOpZoekTermen(zoektermen) {
+    
   }
 }
-*/
-/*
-class VdabComponent {
+
+class VdabApp {
   constructor(window) {
-    this.vacaturesRepository = new VacaturesRepository();
-    this.zoektermen = [];
-    this.storage = window.localStorage;
+    this._vacaturesRepository = new VacaturesRepository();
+    this._zoektermen = [];
+    this._storage = window.localStorage;
   }
 
   get vacaturesRepository() {
@@ -104,23 +101,34 @@ class VdabComponent {
     return this._storage;
   }
 
-  set vacaturesRepository(value) {
-    this._vacaturesRepository = value;
+  voegZoektermToe(){    
+    
   }
-  set zoektermen(value) {
-    this._zoektermen = value;
+
+  verwijderZoekterm(zoekterm){
+    
   }
-  set storage(value) {
-    this._storage = value;
+
+  getZoektermenFromStorage() {
+    
+  }
+
+  setZoektermenInStorage() {    
+       
+  }
+
+  showResultaat(){
+    this.zoektermenToHtml();
+    this.vacaturesToHtml();
   }
 
   zoektermenToHtml() {
-
+    
   }
 
   vacaturesToHtml() {
-document.getElementById('resultaat').innerHTML = '';
-    this._vacaturesRepository.filter(this._zoektermen).forEach(vacature => {
+    document.getElementById('resultaat').innerHTML = '';
+    this._vacaturesRepository.filterOpZoekTermen(this._zoektermen).forEach(vacature => {
       const divElement = document.createElement('div');
       const h2Element = document.createElement('h2');
       const h2Text = document.createTextNode(vacature.titel);
@@ -156,16 +164,8 @@ document.getElementById('resultaat').innerHTML = '';
       document.getElementById('resultaat').appendChild(divElement);
     });
   }
-
-  getZoektermenFromStorage() {
-
-  }
-
-  setZoektermenInStorage() {
-
-  }
 }
-*/
+
 function init() {
   // Testcode Deel 1
   /*
@@ -192,22 +192,14 @@ function init() {
   ); 
   */
   // Testcode Deel 2
-  /*
-  const vacatureRepository = new VacaturesRepository();
-  console.log(vacatureRepository.vacatures);
-  console.log(vacatureRepository.filter(["javascript", "werfleider"]));
-  console.log(vacatureRepository.filter(["groen", "bomen", "planten"])); 
-  */
-  // Testcode Deel 3
-  /*
-  const vdabComponent = new VdabComponent(this);
-  if (!vdabComponent.storage) {
-    alert('no storage available. ');
-    return;
-  }
-  */
+
+  // const vacatureRepository = new VacaturesRepository();
+  // console.log(vacatureRepository.vacatures);
+  // console.log(vacatureRepository.filterOpZoekTermen(["javascript", "werfleider"]));
+  // console.log(vacatureRepository.filterOpZoekTermen(["groen", "bomen", "planten"]));
+
+  // Deel 3
+  
 }
 
-window.onload = () => {
-  init();
-};
+window.onload = init;
