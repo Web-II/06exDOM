@@ -1,16 +1,12 @@
 /*
 class UitgavenRepository {
   constructor() {
-    this.uitgaven = [];
+    this._uitgaven = [];
     this.uitgavenOpvullen();
   }
 
   get uitgaven() {
     return this._uitgaven;
-  }
-
-  set uitgaven(value) {
-    this._uitgaven = value;
   }
 
   voegUitgaveToe(id, datum, bedrag, omschrijving, categorie) {
@@ -76,12 +72,12 @@ class UitgavenRepository {
 /*
 class BankComponent {
   constructor(window) {
-    this.canvas = window.document.getElementById('canvas');
-    this.ctx = this._canvas.getContext('2d');
-    this.offset = 50;
-    this.storage = window.localStorage;
-    this.aantalBezoeken = 1;
-    this.uitgavenRepository = new UitgavenRepository();
+    this._canvas = window.document.getElementById('canvas');
+    this._ctx = this._canvas.getContext('2d');
+    this._offset = 50;
+    this._storage = window.localStorage;
+    this._aantalBezoeken = 1;
+    this._uitgavenRepository = new UitgavenRepository();
   }
 
   get canvas() {
@@ -101,25 +97,6 @@ class BankComponent {
   }
   get uitgavenRepository() {
     return this._uitgavenRepository;
-  }
-
-  set canvas(value) {
-    this._canvas = value;
-  }
-  set ctx(value) {
-    this._ctx = value;
-  }
-  set offset(value) {
-    this._offset = value;
-  }
-  set storage(value) {
-    this._storage = value;
-  }
-  set aantalBezoeken(value) {
-    this._aantalBezoeken = value;
-  }
-  set uitgavenRepository(value) {
-    this._uitgavenRepository = value;
   }
 
   toHtml() {
@@ -238,7 +215,7 @@ window.onload = () => {
   init();
 };
 
-Date.prototype.datumNotatie = function() {
+Date.prototype.datumNotatie = function () {
   const dagen = [
     'Zondag',
     'Maandag',
@@ -246,7 +223,7 @@ Date.prototype.datumNotatie = function() {
     'Woensdag',
     'Donderdag',
     'Vrijdag',
-    'Zaterdag'
+    'Zaterdag',
   ];
   return (
     dagen[this.getDay()] +

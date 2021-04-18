@@ -1,8 +1,8 @@
 class Boek {
   constructor(id, titel, afbeelding) {
-    this.id = id;
-    this.titel = titel;
-    this.afbeelding = afbeelding;
+    this._id = id;
+    this._titel = titel;
+    this._afbeelding = afbeelding;
   }
 
   get id() {
@@ -14,29 +14,16 @@ class Boek {
   get afbeelding() {
     return this._afbeelding;
   }
-
-  set id(value) {
-    this._id = value;
-  }
-  set titel(value) {
-    this._titel = value;
-  }
-  set afbeelding(value) {
-    this._afbeelding = value;
-  }
 }
 
 class BoekenRepository {
   constructor() {
-    this.boeken = [];
+    this._boeken = [];
     this.boekenVullen();
   }
 
   get boeken() {
     return this._boeken;
-  }
-  set boeken(value) {
-    this._boeken = value;
   }
 
   voegBoekToe(id, titel, afbeelding) {
@@ -46,9 +33,7 @@ class BoekenRepository {
   // geefBoeken retourneert een deel van de boeken in een array
   // parameter 'vanafBoek' is een nummer en geeft aan vanaf het hoeveelste boek we een deel nemen (eerste boek is nummer 1)
   // parameter 'aantalBoeken' is een nummer en geeft aan hoeveel opeenvolgende boeken we in het deel stoppen
-  geefBoeken(vanafBoek, aantalBoeken) {
-    
-  }
+  geefBoeken(vanafBoek, aantalBoeken) {}
 
   boekenVullen() {
     this.voegBoekToe(1, 'Wuthering Heights', 'WutheringHeights.jpg');
@@ -120,10 +105,10 @@ class BoekenRepository {
 
 class BoekenComponent {
   constructor(storage) {
-    this.boekenRepository = new BoekenRepository();
-    this.gelezenBoeken = new Set(); 
-    this.actievePagina = 1; // bevat het nummer van de pagina die momenteel getoond wordt
-    this.storage = storage;
+    this._boekenRepository = new BoekenRepository();
+    this._gelezenBoeken = new Set();
+    this._actievePagina = 1; // bevat het nummer van de pagina die momenteel getoond wordt
+    this._storage = storage;
     this.aantalBoekenPerPagina = 6;
   }
   get boekenRepository() {
@@ -142,42 +127,30 @@ class BoekenComponent {
     return this._aantalBoekenPerPagina;
   }
 
-  set boekenRepository(value) {
-    this._boekenRepository = value;
-  }
-  set gelezenBoeken(value) {
-    this._gelezenBoeken = value;
-  }
-  set actievePagina(value) {
-    this._actievePagina = value;
-  }
-  set storage(value) {
-    this._storage = value;
-  }
   set aantalBoekenPerPagina(value) {
     this._aantalBoekenPerPagina = value;
   }
 
   // navigatieToHtml genereert de twee knoppen die in de div met id navigatie moeten komen
   navigatieToHtml() {
-    const aantalPaginas = this._boekenRepository.boeken.length / this._aantalBoekenPerPagina;
-        
+    const aantalPaginas =
+      this._boekenRepository.boeken.length / this._aantalBoekenPerPagina;
+
     const btn1 = document.createElement('button');
     btn1.appendChild(document.createTextNode('<'));
-    btn1.onclick = ()=>{
+    btn1.onclick = () => {
       this._actievePagina = Math.max(1, this._actievePagina - 1);
       this.boekenToHtml();
-    }
-    
+    };
+
     const btn2 = document.createElement('button');
     btn2.appendChild(document.createTextNode('>'));
-    btn2.onclick = ()=>{
-      this._actievePagina = Math.min(aantalPaginas,this._actievePagina + 1);
+    btn2.onclick = () => {
+      this._actievePagina = Math.min(aantalPaginas, this._actievePagina + 1);
       this.boekenToHtml();
-    }
+    };
     document.getElementById('navigatie').appendChild(btn1);
     document.getElementById('navigatie').appendChild(btn2);
-
   }
 
   // boekenToHtml genereert dynamsich de boekenplank die in de div met id boeken moet komen
@@ -194,7 +167,6 @@ class BoekenComponent {
 
     // voor elk boek:
 
-    
     boekenDiv.appendChild(row);
   }
 
@@ -204,14 +176,10 @@ class BoekenComponent {
   }
 
   // getGelezenBoekenFromStorage haaltde lijst met id's van gelezen boeken op uit de storage
-  getGelezenBoekenFromStorage() { 
-    
-  }
+  getGelezenBoekenFromStorage() {}
 
   // setGelezenBoekenInStorage plaatst de lijst van id's van gelezen boeken in de storage
-  setGelezenBoekenInStorage() {
-
-  }
+  setGelezenBoekenInStorage() {}
 }
 
 function init() {
